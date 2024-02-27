@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none!important;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* header */
+header{
+    width: 100%;
+    display: inline-block;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+header img.banner{
+    height: 56px;
+}
+header ul.menu-services{
+    width: 100%;
+    background-color: blue;
+    font-size: 10px;
+    padding: 10px 0 10px 275px;
+
+}
+header ul.menu-services li{
+    margin-right: 45px;
+}
+header ul.menu-services li:last-child{
+    margin-right: 0;
+}
+header ul.menu-services li a{
+    color:white;
+}
+header ul.menu-services li i {
+    margin-right: 6px;
+    color: white;
+}
+header ul.super-menu{
+    max-width: 1200px;
+    width: calc(100% - 30px);
+    padding : 20px 15px 0px 15px;
+    margin: 0 auto;
+}
+
+img.icon-logo{
+    width: 40px;
+    height: 40px;
+}
+
+ul.super-menu li{
+    font-size: 15px;
+    margin-right: 15px!important;
+    align-content: middle;
+    color: #333333!important;
+
+}
+ul.super-menu li div.menu-list{
+    margin-top: 5px;
+}
+ul.super-menu li:nth-child(3){
+    width: 448px;
+}
+
+ul.super-menu li:nth-child(3) div.search-button{
+    color:white;
+
+}
+ul.super-menu li:nth-child(2){
+    border: 1px solid rgb(224,224,224);
+    padding: 6.4px 12px;
+    border-radius: 5px!important;
+
+
+}
+ul.super-menu li:nth-child(2) div.menu-list a{
+    color:#82869E;
+}
+
+ul.super-menu ul.sub-menu{
+    border-radius: 0.5rem;
+    background-color: red;
+    position: relative;
+    overflow: hidden;
+    width: 12.375rem;
+    height: 28.5rem;
+    z-index: 980;
+    display: none;
+}
+ul.super-menu li.icon{
+    margin-left: 20px;
+}
+ul.super-menu li.icon:last-child{
+    margin-left:60px;
+}
+ul.super-menu li a i.user-icon{
+    font-size: 37px;
+    float: left;
+    margin-right: 9px;
+    color:#82869E;
+    margin-top: 5px;
+}
+ul.super-menu li div.sign-in-up{
+    float: left!important;
+}
+ul.super-menu li div.sign-in-up a{
+    color:#82869E;
+}
+ul.super-menu li i.bell{
+    font-size: 33px;
+    color:#82869E;
+    margin-top: 7px;
+}
+ul.deal-menu{
+    margin: auto 243px;
+    width: 550px;
+    font-size: 12px;
+
+}
+ul.deal-menu li{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 12px;
+
+}
+ul.deal-menu li a{
+    color: #82869E;
+}
+a:hover{
+    color: blue!important;
+    cursor: pointer;
+}
+
+/* body */
+div.main-container{
+
+    max-width: 1200px;
+    width: calc(100% - 30px);
+    padding : 20px 15px 0px 15px;
+    margin: 0 auto;
+
+}
+div.main-container div.hot-list p{
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+div.main-container div.hot-list div.card-deck{
+    gap: 16px;
+}
+div.main-container div.hot-list div.list-title div.card{
+    border: none!important;
+    border-radius: none!important;
+    box-shadow: none!important;
+    width: 102.41px;
+    margin-bottom: 20px;
+
+}
+div.main-container div.hot-list img{
+    width: 56px;
+    height: 56px;
+    margin-left: 9px;
+}
+div.main-container div.hot-list h5{
+    font-size: 15px;
+}
+
+div.main-container div.hot-product p{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+div.main-container div.hot-product div.card-deck{
+    gap: 0 35px;
+}
+div.main-container div.hot-product div.card-deck div.product{
+    width: 206px;
+    border: none!important;
+    border-radius: none!important;
+    box-shadow: none!important;
+    padding: 16px;
+}
+div.product div.deal-tag{
+    margin-top: -37px;
+}
+div.product h5.card-title{
+    font-size: 15px;
+    color: #82869E;
+    font-weight: 600;
+}
+div.product p.card-description{
+    font-size: 12px!important;
+    color: #434657!important;
+
+}
+div.product p.card-price small{
+    font-size: 16px!important;
+    font-weight: 600;
+    color: #1435C3!important;
+}
+
+div.card-body a.crud{
+    padding: .2rem .19rem!important;
+}
