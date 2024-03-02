@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none!important;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+/* header */
+header{
+    width: 100%;
+    display: inline-block;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+header img.banner{
+    height: 56px;
+}
+header ul.menu-services{
+    width: 100%;
+    background-color: blue;
+    font-size: 10px;
+    padding: 10px 0 10px 275px;
+
+}
+header ul.menu-services li{
+    margin-right: 45px;
+}
+header ul.menu-services li:last-child{
+    margin-right: 0;
+}
+header ul.menu-services li a{
+    color:white;
+}
+header ul.menu-services li i {
+    margin-right: 6px;
+    color: white;
+}
+header ul.super-menu{
+    max-width: 1200px;
+    width: calc(100% - 30px);
+    padding : 20px 15px 0px 15px;
+    margin: 0 auto;
+}
+
+img.icon-logo{
+    width: 40px;
+    height: 40px;
+}
+
+ul.super-menu li{
+    font-size: 15px;
+    margin-right: 15px!important;
+    align-content: middle;
+    color: #333333!important;
+
+}
+ul.super-menu li div.menu-list{
+    margin-top: 5px;
+}
+ul.super-menu li:nth-child(3){
+    width: 448px;
+}
+
+ul.super-menu li:nth-child(3) div.search-button{
+    color:white;
+
+}
+ul.super-menu li:nth-child(2){
+    border: 1px solid rgb(224,224,224);
+    padding: 6.4px 12px;
+    border-radius: 5px!important;
+
+
+}
+ul.super-menu li:nth-child(2) div.menu-list a{
+    color:#82869E;
+}
+
+ul.super-menu ul.sub-menu{
+    border-radius: 0.5rem;
+    background-color: red;
+    position: relative;
+    overflow: hidden;
+    width: 12.375rem;
+    height: 28.5rem;
+    z-index: 980;
+    display: none;
+}
+ul.super-menu li.icon{
+    margin-left: 20px;
+}
+ul.super-menu li.icon:last-child{
+    margin-left:60px;
+}
+ul.super-menu li a i.user-icon{
+    font-size: 37px;
+    float: left;
+    margin-right: 9px;
+    color:#82869E;
+    margin-top: 5px;
+}
+ul.super-menu li div.sign-in-up{
+    float: left!important;
+}
+ul.super-menu li div.sign-in-up a{
+    color:#82869E;
+}
+ul.super-menu li i.bell{
+    font-size: 33px;
+    color:#82869E;
+    margin-top: 7px;
+}
+ul.deal-menu{
+    margin: auto 243px;
+    width: 550px;
+    font-size: 12px;
+
+}
+ul.deal-menu li{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 12px;
+
+}
+ul.deal-menu li a{
+    color: #82869E;
+}
+a:hover{
+    color: blue!important;
+    cursor: pointer;
+}
+
+/* body */
+div.main-container{
+
+    max-width: 1200px;
+    width: calc(100% - 30px);
+    padding : 20px 15px 0px 15px;
+    margin: 0 auto;
+
+}

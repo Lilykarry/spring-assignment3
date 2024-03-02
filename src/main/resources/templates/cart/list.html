@@ -1,10 +1,178 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"  href="/static/css/cart.css" type="text/css">
 </head>
 <body>
+    <div class="main">
+        <header>
+            <img src="https://lh3.googleusercontent.com/AoHDlW9zb1tl9hbS2cf1D65s8Bk2Y4MH8eFK0EgJnyCn3L71NH46cnhYYYlx0Vz60U1I3urNKjiwNqwWF_SQVcXXbRUH8eQ=w1920-rw" alt="" class="overflow-hidden w-100 banner">
+            <ul class="menu-services d-flex flex-row">
+                <li>
+                    <a href="#"><i class="fa fa-tag"></i>Khuyến mãi</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-building"></i>Hệ thống Showroom</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-briefcase"></i>Tư vấn doanh nghiệp</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-headphones"></i>Liên hệ</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-tv"></i>Tin công nghệ</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-wrench"></i>Xây dựng cấu hình</a>
+                </li>
+            </ul>
+            <ul class="super-menu d-flex flex-row">
+                <li><img alt="" src="https://shopfront-cdn.tekoapis.com/static/phongvu/logo.svg" class="icon-logo h-100"></li>
+                <li>
+                    <div class="menu-list">
+                        <a><i class="fa fa-bars"></i></a>
+                        <a href="#">Danh muc san pham
+                        </a>
+                    </div>
+                    <ul class="sub-menu"></ul>
+                </li>
+                <li class="input-group">
+                    <div class="input-group">
+                        <form class="d-flex">
+                            <input type="text" class="form-control search" placeholder="Nhap tu khoa tim kiem" aria-label="Search" aria-describedby="basic-addon2" style="width: 392px" name="searchProduct">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary h-100" type="submit" ><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li class="icon">
+                    <a href="#"><i class="fa fa-user user-icon"></i></a>
+                    <div class="sign-in-up acc">
+                        <a href="#">Đăng nhập</a>
+                        <a href="#" class="d-block">Đăng ký</a>
+                    </div>
+                </li>
+                <li class="icon">
+                    <a href="#"><i class="fa fa-bell bell"></i></a>
+                </li>
+                <li class="icon">
+                    <a href="#"><i class="fa fa-shopping-cart user-icon"></i></a>
+                    <div class="sign-in-up">
+                        <a href="#">Giỏ hàng của bạn</a>
+                        <a href="#" class="d-block">0 sản phẩm</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="deal-menu d-flex flex-row">
+                <li><a href="#">Xmas Deal</a></li>
+                <li><a href="#">Iphone 15</a></li>
+                <li><a href="#">Macbook rẻ nhất thị trường</a></li>
+                <li><a href="#">Acer nitro</a></li>
+                <li><a href="#">Laptop HP</a></li>
 
+            </ul>
+        </header>
+        <div class="main-container">
+            <section class="h-100 h-custom">
+                <div class="container h-100 py-5">
+                    <div class="col">
+
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th scope="col" class="h5">Id</th>
+                                    <th scope="col" class="h5">Product Id</th>
+                                    <th scope="col" class="h5">Name</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="prod,index : ${carts}">
+                                        <td class="align-middle">
+                                            <p class="mb-0" th:text="${index.count}" style="font-weight: 500;"></p>
+                                        </td>
+                                        <td class="align-middle">
+                                            <p class="mb-0" th:text="${prod.product.productID}" style="font-weight: 500;"></p>
+                                        </td>
+                                        <th scope="row">
+
+
+                                            <p class="mb-0" th:text="${prod.product.productName}"></p>
+
+                                        </th>
+                                        <td class="align-middle">
+                                            <p class="mb-0" style="font-weight: 500;" th:text="${prod.product.productDescription}"></p>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="d-flex flex-row">
+                                                <button class="btn btn-link px-2"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                                    <i class="fa fa-minus"></i>
+                                                </button>
+
+                                                <input id="form1" min="0" name="quantity" th:value="${prod.amount}" type="number"
+                                                       class="form-control form-control-sm" style="width: 50px;" />
+
+                                                <button class="btn btn-link px-2"
+                                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                                    <i class="fa fa-plus"></i>
+                                                </button>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <p class="mb-0" style="font-weight: 500;" th:text="${prod.product.unitPrice}"></p>
+                                        </td>
+                                        <td class="align-middle">
+                                            <p class="mb-0" style="font-weight: 500;" th:text="${prod.product.unitPrice * prod.amount}"></p>
+                                        </td>
+                                        <td class="align-middle">
+                                            <form th:action="@{/cart/remove}" method="get">
+                                                <input type="hidden" th:name="'cartItemID'" th:value="${index.count}" />
+                                                <button type="submit" class="text-danger" style="border: none"><i class="fa fa-trash text-danger font-weight-bold"></i></button>
+                                            </form>
+
+                                        </td>
+                                    </tr>
+
+
+                                </tbody>
+
+
+
+                            </table>
+                            <form th:action="@{/cart/checkout}" method="post" th:if="${carts != null and not #lists.isEmpty(carts)}">
+                                <input type="hidden" th:each="cart : ${carts}" th:name="'products'" th:value="${cart.product.productID + ',' + cart.amount}" />
+<!--                                <th:block th:if="${carts.size() == 1}">-->
+<!--                                    &lt;!&ndash; Wrap the single value in brackets to ensure it's treated as a list &ndash;&gt;-->
+<!--                                    <input type="hidden" th:name="'products'" th:value="${{carts[0].product.productID + ',' + carts[0].amount}}" />-->
+<!--                                </th:block>-->
+                                <input type="hidden" th:if="${carts.size() == 1}" th:name="'singleProduct'" th:value="${carts[0].product.productID + ',' + carts[0].amount}" />
+                                <button type="submit" class="text-white btn-checkouts">Checkout</button>
+                            </form>
+
+
+
+
+
+                            <!--                                <a th:href="@{/remove/{id}(id=${yourItemId})}" class="text-danger" th:text="Remove">Remove</a>-->
+                            <a th:href="@{/cart/clear}" class="text-white btn-clear " th:if="${carts != null and not #lists.isEmpty(carts)}">Clear</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
 </body>
 </html>

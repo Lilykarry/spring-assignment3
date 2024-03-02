@@ -13,10 +13,10 @@ import java.util.Scanner;
 public class AssignmentJpa33Application {
 
     public static void main(String[] args) {
-//        SpringApplication.run(AssignmentJpa33Application.class, args);
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
-        ProductService service = context.getBean("productService", ProductService.class);
-        Scanner sc = new Scanner(System.in);
+        SpringApplication.run(AssignmentJpa33Application.class, args);
+//        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
+//        ProductService service = context.getBean("productService", ProductService.class);
+//        Scanner sc = new Scanner(System.in);
 
 //        service.paginationProducts().forEach(product -> {
 //            System.out.println(product.toString());
@@ -56,17 +56,17 @@ public class AssignmentJpa33Application {
 //            System.out.println(products.toString());
 //        });
 
-        System.out.println("Please input your initial price: ");
-        double initialPrice = sc.nextDouble();
-        System.out.println("Please input your closing price:");
-        double closingPrice = sc.nextDouble();
-        service.searchByUnitPrice(initialPrice,closingPrice).forEach(product -> {
-            System.out.println(product.toString());
-        });
+//        System.out.println("Please input your initial price: ");
+//        double initialPrice = sc.nextDouble();
+//        System.out.println("Please input your closing price:");
+//        double closingPrice = sc.nextDouble();
+//        service.searchByUnitPrice(initialPrice,closingPrice).forEach(product -> {
+//            System.out.println(product.toString());
+//        });
 
-        System.out.println("Please input name of product: ");
-        String productName = sc.nextLine();
-        System.out.println(service.searchByName(productName).toString());
+//        System.out.println("Please input name of product: ");
+//        String productName = sc.nextLine();
+//        System.out.println(service.searchByName(productName).toString());
     }
 
 }

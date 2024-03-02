@@ -13,4 +13,5 @@ public interface ProductService {
     List<Product> searchByCategory(String name);
     List<Product> searchByUnitPrice(double priceStart,double priceEnd);
     Product searchByName(String name);
+    Product findById(Long id);
 }

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Checkout</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"  href="/static/css/checkout.css" type="text/css">
+</head>
+<body>
+<!--<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="prod : ${carts}">
+        <td th:text="${prod.product.productID}"></td>
+        <td th:text="${prod.amount}"></td>
+
+    </tr>
+    </tbody>
+</table>-->
+<!-- Credit card form -->
+    <div class="main">
+        <header>
+            <img src="https://lh3.googleusercontent.com/AoHDlW9zb1tl9hbS2cf1D65s8Bk2Y4MH8eFK0EgJnyCn3L71NH46cnhYYYlx0Vz60U1I3urNKjiwNqwWF_SQVcXXbRUH8eQ=w1920-rw" alt="" class="overflow-hidden w-100 banner">
+            <ul class="menu-services d-flex flex-row">
+                <li>
+                    <a href="#"><i class="fa fa-tag"></i>Khuyến mãi</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-building"></i>Hệ thống Showroom</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-briefcase"></i>Tư vấn doanh nghiệp</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-headphones"></i>Liên hệ</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-tv"></i>Tin công nghệ</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-wrench"></i>Xây dựng cấu hình</a>
+                </li>
+            </ul>
+            <ul class="super-menu d-flex flex-row">
+                <li><img alt="" src="https://shopfront-cdn.tekoapis.com/static/phongvu/logo.svg" class="icon-logo h-100"></li>
+                <li>
+                    <div class="menu-list">
+                        <a><i class="fa fa-bars"></i></a>
+                        <a href="#">Danh muc san pham
+                        </a>
+                    </div>
+                    <ul class="sub-menu"></ul>
+                </li>
+                <li class="input-group">
+                    <div class="input-group">
+                        <form class="d-flex">
+                            <input type="text" class="form-control search" placeholder="Nhap tu khoa tim kiem" aria-label="Search" aria-describedby="basic-addon2" style="width: 392px" name="searchProduct">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary h-100" type="submit" ><i class="fa fa-search"></i></button>
+                            </div>
+                        </form>
+                    </div>
+                </li>
+                <li class="icon">
+                    <a href="#"><i class="fa fa-user user-icon"></i></a>
+                    <div class="sign-in-up acc">
+                        <a href="#">Đăng nhập</a>
+                        <a href="#" class="d-block">Đăng ký</a>
+                    </div>
+                </li>
+                <li class="icon">
+                    <a href="#"><i class="fa fa-bell bell"></i></a>
+                </li>
+                <li class="icon">
+                    <a href="#"><i class="fa fa-shopping-cart user-icon"></i></a>
+                    <div class="sign-in-up">
+                        <a href="#">Giỏ hàng của bạn</a>
+                        <a href="#" class="d-block">0 sản phẩm</a>
+                    </div>
+                </li>
+            </ul>
+            <ul class="deal-menu d-flex flex-row">
+                <li><a href="#">Xmas Deal</a></li>
+                <li><a href="#">Iphone 15</a></li>
+                <li><a href="#">Macbook rẻ nhất thị trường</a></li>
+                <li><a href="#">Acer nitro</a></li>
+                <li><a href="#">Laptop HP</a></li>
+
+            </ul>
+        </header>
+        <div class="main-container">
+            <!-- Credit card form -->
+            <section>
+                <div class="row">
+                    <div class="col-md-8 mb-4">
+                        <div class="card mb-4">
+                            <div class="card-header py-3">
+                                <h5 class="mb-0">Biling details</h5>
+                            </div>
+                            <div class="card-body">
+                                <form th:action="@{/order/add}" method="post">
+                                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                                    <div class="row mb-4">
+                                        <div class="col">
+                                            <div class="form-outline">
+                                                <input type="text" id="form6Example1" class="form-control" placeholder="Name" th:name="name"/>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Text input -->
+                                    <div class="form-outline mb-4">
+                                        <input type="text" id="form6Example4" class="form-control" placeholder="Address" th:name="address" />
+
+                                    </div>
+
+
+                                    <hr class="my-4" />
+
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="checkoutForm1" />
+                                        <label class="form-check-label" for="checkoutForm1">
+                                            Shipping address is the same as my billing address
+                                        </label>
+                                    </div>
+
+                                    <hr class="my-4" />
+
+                                        <input type="hidden" th:each="cart : ${carts}" th:name="'products'" th:value="${cart.product.productID + ',' + cart.amount}" />
+                                        <input type="hidden" th:if="${carts.size() == 1}" th:name="'singleProduct'" th:value="${carts[0].product.productID + ',' + carts[0].amount}" />
+                                        <button class="btn btn-primary btn-lg btn-block" type="submit">
+                                            Continue to checkout
+                                        </button>
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 mb-4">
+                        <div class="card mb-4">
+                            <div class="card-header py-3">
+                                <h5 class="mb-0">Summary</h5>
+                            </div>
+                            <div class="card-body">
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+                                        Products
+                                        <span>$53.98</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center px-0">
+                                        Shipping
+                                        <span>SPX Express</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3">
+                                        <div>
+                                            <strong>Total amount</strong>
+                                            <strong>
+                                                <p class="mb-0">(including VAT)</p>
+                                            </strong>
+                                        </div>
+                                        <span><strong>$53.98</strong></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+</body>
+</html>
